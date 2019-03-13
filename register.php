@@ -40,7 +40,7 @@
               <input type="password" class="form-control" name="confirmpwd" id="confirmpwd" placeholder="Confirm Password">
             </div>
 
-            <button type="submit" class="btn btn-primary" id="submit" name="submit">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submit" name="register-submit">Submit</button>
         
           </form>
         </div>
