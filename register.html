@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Register</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+</head>
+
+<body class="bg-dark">
+    <div class="container my-4">
+        <div class="row">
+            <div class="col">
+                <div class="text-container text-light">
+                    <h1 class="title" id="title">Registration</h1>
+                    <h5 class="subtitle" id="subtitle">Here you can fill out your registration information.</h5>
+                </div>
+                <div class="card my-3">
+                    <div class="card-body">
+                        <form method="POST" action="../BAS/BRINETS/user/register">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="firstname"><strong>First name</strong></label>
+                                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="e.g. John"
+                                        aria-describedby="helpFirstName">
+                                    <small id="helpFirstName" class="text-muted sr-only">Enter your first name</small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="lastname"><strong>Last name</strong></label>
+                                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="e.g. Doe"
+                                        aria-describedby="helpLastName">
+                                    <small id="helpLastName" class="text-muted sr-only">Enter your last name</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><strong>Email</strong></label>
+                                <input type="email" class="form-control" name="email" id="email" aria-describedby="helpEmail"
+                                    placeholder="e.g. johndoe123@mail.com">
+                                <small id="helpEmail" class="form-text text-muted sr-only">Enter your email address</small>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="password"><strong>Password</strong></label>
+                                    <input type="password" class="form-control" name="password" id="password"
+                                        placeholder="Enter your password">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="password-confirm"><strong>Confirm password</strong></label>
+                                    <input type="password" class="form-control" name="password-confirm" id="password-confirm"
+                                        placeholder="Enter your password again">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="role"><strong>Role</strong></label>
+                                <select class="custom-select" name="role" id="role">
+                                    <option selected>Choose role...</option>
+                                    <option value="0">Teller</option>
+                                    <option value="1">Supervisor</option>
+                                </select>
+                            </div>
+                            <div class="form-group collapse" id="fingerprint">
+                                <label><strong>Fingerprint</strong></label>
+                                <input type="hidden" class="fp-input" name="fp-left-pinky" id="fp-left-pinky">
+                                <input type="hidden" class="fp-input" name="fp-left-ring" id="fp-left-ring">
+                                <input type="hidden" class="fp-input" name="fp-left-middle" id="fp-left-middle">
+                                <input type="hidden" class="fp-input" name="fp-left-index" id="fp-left-index">
+                                <input type="hidden" class="fp-input" name="fp-left-thumb" id="fp-left-thumb">
+                                <input type="hidden" class="fp-input" name="fp-right-thumb" id="fp-right-thumb">
+                                <input type="hidden" class="fp-input" name="fp-right-index" id="fp-right-index">
+                                <input type="hidden" class="fp-input" name="fp-right-middle" id="fp-right-middle">
+                                <input type="hidden" class="fp-input" name="fp-right-ring" id="fp-right-ring">
+                                <input type="hidden" class="fp-input" name="fp-right-pinky" id="fp-right-pinky">
+                                <small class="text-muted"><br>Click a button above any finger to start input</small>
+                                <div class="alerts mt-3">
+
+                                </div>
+                                <div class="card bg-light text-white col-md-8">
+                                    <img class="card-img" src="img/Hand2011.png" alt="">
+                                    <style>
+                                        .fp-btn {
+                                            position: absolute;
+                                        }
+                                        .fp-btn-left {
+                                            transform: translateX(-50%) translateY(-50%);
+                                        }
+                                        .fp-btn-right {
+                                            transform: translateX(50%) translateY(-50%);
+                                        }
+                                    </style>
+                                    <div class="card-img-overlay">
+                                        <div class="d-none d-lg-block">
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-left" data-target="fp-left-pinky"
+                                                style="top:41.5%;left:8.5%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-left" data-target="fp-left-ring"
+                                                style="top:20.5%;left:14%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-left" data-target="fp-left-middle"
+                                                style="top:10.5%;left:21%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-left" data-target="fp-left-index"
+                                                style="top:11%;left:29.75%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-left" data-target="fp-left-thumb"
+                                                style="top:39%;left:45%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-right" data-target="fp-right-pinky"
+                                                style="top:41.5%;right:8.5%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-right" data-target="fp-right-ring"
+                                                style="top:20.5%;right:14%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-right" data-target="fp-right-middle"
+                                                style="top:10.5%;right:21%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-right" data-target="fp-right-index"
+                                                style="top:11%;right:29.75%"><i class="fas fa-fingerprint"></i></button>
+                                            <button type="button" class="btn btn-dark fp-btn fp-btn-right" data-target="fp-right-thumb"
+                                                style="top:39%;right:45%"><i class="fas fa-fingerprint"></i></button>
+                                        </div>
+                                        <div class="d-lg-none">
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-left"
+                                                data-target="fp-left-pinky" style="top:41.5%;left:9%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-left"
+                                                data-target="fp-left-ring" style="top:20.5%;left:14.5%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-left"
+                                                data-target="fp-left-middle" style="top:10.5%;left:21.5%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-left"
+                                                data-target="fp-left-index" style="top:11%;left:30.25%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-left"
+                                                data-target="fp-left-thumb" style="top:39%;left:45%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-right"
+                                                data-target="fp-right-thumb" style="top:39%;right:45%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-right"
+                                                data-target="fp-right-index" style="top:11%;right:30.25%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-right"
+                                                data-target="fp-right-middle" style="top:10.5%;right:21.5%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-right"
+                                                data-target="fp-right-ring" style="top:20.5%;right:14.5%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                            <button type="button" class="btn btn-dark btn-sm fp-btn fp-btn-right"
+                                                data-target="fp-right-pinky" style="top:41.5%;right:9%"><i class="fas fa-fingerprint fa-sm"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submit" name="submit">Submit</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <script>
+        function appendAlert(message, type) {
+            let $element = $(
+                `<div class="alert alert-${type} alert-dismissible fade show" role="alert"><strong>${message}</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`
+            );
+
+            $('.alerts').append($element);
+            setTimeout(() => $element.alert('close'), 2000);
+        }
+
+        function detectRole() {
+            if ($('#role').val() == 1) {
+                $('#fingerprint').collapse('show');
+            } else {
+                $('#fingerprint').collapse('hide');
+            }
+        }
+
+        function greenifyFPButtons() {
+            $('.fp-input').each(function () {
+                let target = $(this).attr('name');
+                if ($(this).val()) {
+                    $(`button[data-target=${target}]`).removeClass("btn-dark btn-danger").addClass(
+                        "btn-success");
+                }
+            });
+        }
+        $('#role').change(function (e) {
+            detectRole();
+        });
+        $('.fp-btn').click(function (e) {
+            let target = $(this).attr('data-target');
+            $.ajax({
+                type: "get",
+                url: "../BAS/AFIS/fingerprint/capture",
+                cache: false,
+                contentType: "application/json",
+                processData: false,
+                success: function (response) {
+                    response = JSON.parse(response);
+                    $(`input[name=${target}]`).val(response.fingerprint).change(function () {
+                        greenifyFPButtons();
+                    }).trigger("change");
+
+                    appendAlert("Capture successful", "success");
+                },
+                error: function (xhr, textstatus, errorthrown) {
+                    $(`button[data-target=${target}]`).removeClass("btn-dark btn-success").addClass(
+                        "btn-danger")
+                    if (textstatus == 'error') {
+                        appendAlert(JSON.parse(xhr.responseText).error, "danger")
+                    } else if (textstatus == 'timeout') {
+                        appendAlert("Timeout. Please try again", "warning");
+                    }
+                },
+                timeout: 30000
+            })
+        });
+        $(document).ready(function () {
+            greenifyFPButtons();
+            detectRole();
+        });
+    </script>
+</body>
+
+</html>

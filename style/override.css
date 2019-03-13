@@ -1,0 +1,54 @@
+body{
+    background-color:#2E294E;
+    color:#353535;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    color:#252323;
+    background-color:#FFFFFF; 
+    padding: 50px 250px 35px 250px; /* hard coded */
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    width:70%;
+    height:100%;
+}
+
+.text-container{
+    margin-bottom:20px;
+}
+
+#amountRow{
+    margin-bottom:10px;
+}
+
+.input-group-text{
+    background-color: #6C757D;
+    color: #FFFFFF;
+}
+
+.form-control{
+    margin-top:0;
+    margin-bottom:0;
+}
+
+
+.divider{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.btnlist{
+    
+}
+
+#approvalType{
+    width:100%;
+}
+
