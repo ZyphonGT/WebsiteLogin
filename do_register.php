@@ -3,6 +3,10 @@
 
 	if(isset($_POST['register-submit'])) {
 		$link = mysqli_connect("localhost","root","","brinets");
+		if(!$link) {
+			die("Connection Failed: ".mysqli_connect_error());
+		}
+		
 		// mysqli_select_db($link, "brinets");
 
 		$email = $_POST['email'];
