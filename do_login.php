@@ -1,14 +1,20 @@
 <?php
 	session_start();
-	$username = $_POST['username'];
-	$password = $_POST['pwd'];
 
 	$link = mysqli_connect("localhost","root","");
 	mysqli_select_db($link, "brinets");
 
+	$username 	= $_POST['username'];
+	$password 	= $_POST['pwd'];
+	$empty		= false;
+
+	if(empty($username) || empty($password)) {
+		header("Location: login.php?error=emptyfields");
+		exit();
+	}
 
 	$result = mysqli_query($link, "select * from user where username = '$username' and password = '$password'")
-				or die("Failed to query database ".mysqli_error($link));
+			or die("Failed to query database ".mysqli_error($link));
 
 	$row = mysqli_fetch_array($result);
 
@@ -21,7 +27,5 @@
 	} else {
 		echo 'Wrong Username or Password';
 	}
-
-
 
 ?>
