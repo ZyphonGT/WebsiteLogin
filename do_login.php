@@ -10,6 +10,20 @@
 
 		$username 	= $_POST['username'];
 		$password 	= $_POST['pwd'];
+		
+		$secretKey	= "6LfoIZYUAAAAANnkiYlM5Lc_yU7NLdUTd9rZFyD9";
+		$responseKey= $_POST['g-recaptcha-response'];
+		$userIP		= $_SERVER['REMOTE_ADDR'];
+		$googleUrl	= "https://www.google.com/recaptcha/api/siteverify";
+
+		// Google ReCaptcha V2
+		$response = file_get_contents($googleUrl.'?secret='.$secretKey.'&response='.$responseKey.'&remoteip='.$userIP);
+		$response = json_decode($response);
+
+		if($response->success != 1) {
+			header("Location: login.php?error=recaptcha&uid=".$username);
+			exit();
+		}
 
 		if(empty($username) || empty($password)) {
 			header("Location: login.php?error=emptyfields&uid=".$username);
