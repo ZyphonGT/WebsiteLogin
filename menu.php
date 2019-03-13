@@ -19,10 +19,10 @@ session_start();
 <body>
 
 <?php
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['uid'])){
 	$username = "Please relogin";
 } else{
-	$username = $_SESSION['username'];
+	$username = $_SESSION['uid'];
 }
 ?>
 

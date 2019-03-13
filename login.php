@@ -35,7 +35,7 @@
 							<small id="helpId" class="form-text text-muted">Password</small>
 						</div>
 
-						<button type="submit" class="btn btn-primary" id="submit" name="submit">Submit</button>
+						<button type="submit" class="btn btn-primary" id="submit" name="login-submit">Submit</button>
 		
 					</form>
 
