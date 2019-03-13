@@ -37,10 +37,10 @@ if(!isset($_SESSION['uid'])){
                 <div class="card">
                     <h4 class="card-header">Welcome <?php echo $username; ?>!</h4>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="override.php">Override</a></h4>
+                        <h4 class="card-title"><a href="menu.php">Link #1</a></h4>
                     </div>
 					<div class="card-body">
-                        <h4 class="card-title"><a href="withdrawal.php">Withdrawal</a></h4>
+                        <h4 class="card-title"><a href="menu.php">Link #2</a></h4>
                     </div>
 					<div class="card-body">
                         <h4 class="card-title"><a href="do_logout.php">Logout</a></h4>
