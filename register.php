@@ -2,6 +2,7 @@
  <html lang="en">
    <head>
      <title>Register</title>
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
      <!-- Required meta tags -->
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,6 +40,8 @@
             <div class="form-group">
               <input type="password" class="form-control" name="confirmpwd" id="confirmpwd" placeholder="Confirm Password">
             </div>
+
+            <div class="g-recaptcha" data-sitekey="6LfoIZYUAAAAAC2_5OE2KD45MdjAjD48Z4OrkI-k"></div>
 
             <button type="submit" class="btn btn-primary" id="submit" name="register-submit">Submit</button>
         

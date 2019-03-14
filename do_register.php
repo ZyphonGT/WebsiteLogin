@@ -14,12 +14,26 @@
 		$password = $_POST['pwd'];
 		$repassword = $_POST['confirmpwd'];
 
+		$secretKey	= "6LfoIZYUAAAAANnkiYlM5Lc_yU7NLdUTd9rZFyD9";
+		$responseKey= $_POST['g-recaptcha-response'];
+		$userIP		= $_SERVER['REMOTE_ADDR'];
+		$googleUrl	= "https://www.google.com/recaptcha/api/siteverify";
+
+		// Google ReCaptcha V2
+		$response = file_get_contents($googleUrl.'?secret='.$secretKey.'&response='.$responseKey.'&remoteip='.$userIP);
+		$response = json_decode($response);
+
 		/******************
 		 * Error Handling *
 		 ******************/
 
+		 //Recaptcha failed
+		if($response->success != 1) {
+			header("Location: register.php?error=recaptcha&uid=".$username."&email=".$email);
+			exit();
+
 		//Empty Fields
-		if(empty($email) || empty($username) || empty($password) || empty($repassword)) {
+		} else if(empty($email) || empty($username) || empty($password) || empty($repassword)) {
 			header("Location: register.php?error=emptyfields&uid=".$username."&email=".$email);
 			exit();
 
