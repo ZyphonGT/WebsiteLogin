@@ -31,7 +31,7 @@
             } else if($_GET['error'] == "wrongpwd") {
               echo '<div class="alert alert-warning"><strong>Warning! </strong>Wrong Password!</div>';
             } else if($_GET['error'] == "inactivity") {
-              echo '<div class="alert alert-warning">Logged out due to inactivity.</div>';
+              echo '<div class="alert alert-warning">Logged out due to inactivity. Please re-login.</div>';
             } else {
               echo '<div class="alert alert-danger">Uncatched Error! Contact developers.</div>';
             }
