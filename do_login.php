@@ -20,12 +20,16 @@
 		$response = file_get_contents($googleUrl.'?secret='.$secretKey.'&response='.$responseKey.'&remoteip='.$userIP);
 		$response = json_decode($response);
 
+		/******************
+		 * Error Handling *
+		 ******************/
+
+		//Recaptcha failed
 		if($response->success != 1) {
 			header("Location: login.php?error=recaptcha&uid=".$username);
 			exit();
-		}
-
-		if(empty($username) || empty($password)) {
+		//Empty Fields
+		}else if(empty($username) || empty($password)) {
 			header("Location: login.php?error=emptyfields&uid=".$username);
 			exit();
 		} else {
@@ -38,10 +42,12 @@
 				mysqli_stmt_bind_param($stmt,"s",$username);
 				mysqli_stmt_execute($stmt);
 				$result = mysqli_stmt_get_result($stmt);
+				
+				//If username is found
 				if($row = mysqli_fetch_assoc($result)) {
+					//Check password
 					$pwdCheck = password_verify($password, $row['password']);
 					if($pwdCheck == true) {
-						// session_start();
 						$_SESSION['id'] 	= $row['id'];
 						$_SESSION['uid'] 	= $row['username'];
 
