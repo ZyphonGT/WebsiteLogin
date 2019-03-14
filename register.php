@@ -16,8 +16,41 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form method="POST" action="do_register.php">
           
+          <!-- Alert Box -->
+          <?php 
+          //Error Handling
+          if(isset($_GET['error'])) {
+            if($_GET['error'] == "recaptcha") {
+              echo '<div class="alert alert-danger">Please solve the Captcha!</div>';
+            } elseif($_GET['error'] == "emptyfields") {
+              echo '<div class="alert alert-danger">Please complete the form!</div>';
+            } else if($_GET['error'] == "invalidemailusername") {
+              echo '<div class="alert alert-danger">Please enter a valid email!</div>';
+              echo '<div class="alert alert-danger">Please enter a valid username! (AlphaNumeric)</div>';
+            } else if($_GET['error'] == "invalidmail") {
+              echo '<div class="alert alert-danger">Please enter a valid email!</div>';
+            } else if($_GET['error'] == "invalidusername") {
+              echo '<div class="alert alert-danger">Please enter a valid username! (AlphaNumeric)</div>';
+            } else if($_GET['error'] == "passwordcheck") {
+              echo '<div class="alert alert-danger">Re-entered password doesn\'t match!</div>';
+            } else if($_GET['error'] == "usernameTaken") {
+              echo '<div class="alert alert-danger"><strong>Username taken!</strong> Please choose another username.</div>';
+            } else {
+              echo '<div class="alert alert-danger">Uncatched Error! Contact developers.</div>';
+            }
+            //Registration Successful.
+          } else if(isset($_GET['register'])) {
+            if($_GET['success'] == 'success') {
+              echo '<div class="alert alert-success"><strong>Registration Successful!</strong> Click <a href="login.php" class="alert-link">here</a> to login now.</div>';
+            }
+          }
+          ?>
+
+  
+
+          <form method="POST" action="do_register.php">
+
             <div class="text-container">
               <h1 class="title" id="title">Registration</h1>
               <h5 class="subtitle" id="subtitle">Here you can fill out your registration information.</h5> 
