@@ -60,7 +60,7 @@
 					}
 				} else {
 					//username NOT found
-					header("Location: login.php?error=uidNotFound");
+					header("Location: login.php?error=uidNotFound&uid=".$username);
 					exit();
 				}
 

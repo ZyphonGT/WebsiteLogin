@@ -1,3 +1,16 @@
+<?php
+  $email="";
+  $uid = "";
+
+  if(isset($_GET['email'])) {
+		$email = $_GET['email'];
+	}
+
+	if(isset($_GET['uid'])) {
+		$uid = $_GET['uid'];
+	}
+?>
+ 
  <!doctype html>
  <html lang="en">
    <head>
@@ -27,11 +40,11 @@
               echo '<div class="alert alert-danger"><strong>Error! </strong>Please complete the form!</div>';
             } else if($_GET['error'] == "invalidemailusername") {
               echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid email!</div>';
-              echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid username! (AlphaNumeric)</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid username! (AlphaNumeric Only!)</div>';
             } else if($_GET['error'] == "invalidmail") {
               echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid email!</div>';
             } else if($_GET['error'] == "invalidusername") {
-              echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid username! (AlphaNumeric)</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid username! (AlphaNumeric Only!)</div>';
             } else if($_GET['error'] == "passwordcheck") {
               echo '<div class="alert alert-danger"><strong>Error! </strong>Re-entered password doesn\'t match!</div>';
             } else if($_GET['error'] == "usernameTaken") {
@@ -55,12 +68,12 @@
             </div>
 
             <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="e.g. johndoe123@mail.com">
+              <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="e.g. johndoe123@mail.com" value="<?php echo $email ?>">
               <small id="emailHelpId" class="form-text text-muted small-label">Email</small>
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" name="username" id="username" aria-describedby="username-help" placeholder="e.g. johndoe123">
+              <input type="text" class="form-control" name="username" id="username" aria-describedby="username-help" placeholder="e.g. johndoe123" value="<?php echo $uid ?>">
               <small id="helpId" class="form-text text-muted small-label">Username</small>
             </div>
 

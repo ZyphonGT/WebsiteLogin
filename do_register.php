@@ -39,17 +39,17 @@
 
 		//Invalid Email and Username
 		} else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-			header("Location: register.php?error=invalidemailusername");
+			header("Location: register.php?error=invalidemailusername&uid=".$username."&email=".$email);
 			exit();
 
 		//Invalid Email
 		} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			header("Location: register.php?error=invalidmail&uid=".$username);
+			header("Location: register.php?error=invalidmail&uid=".$username."&email=".$email);
 			exit();
 			
 		//Invalid Username
 		} else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)) {	
-			header("Location: register.php?error=invalidusername&email=".$email);
+			header("Location: register.php?error=invalidusername&uid=".$username."&email=".$email);
 			exit();
 
 		//Re-entered Password doesnt match
@@ -72,7 +72,7 @@
 				$resultCheck = mysqli_stmt_num_rows($stmt);
 
 				if($resultCheck > 0) {
-					header("Location: register.php?error=usernameTaken&email=".$email);
+					header("Location: register.php?error=usernameTaken&uid=".$username."&email=".$email);
 					exit();
 				} else {
 					$sql = "INSERT INTO user (email, username, password) VALUES (?, ?, ?)";

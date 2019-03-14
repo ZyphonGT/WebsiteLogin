@@ -1,3 +1,11 @@
+<?php
+	$uid = "";
+
+	if(isset($_GET['uid'])) {
+		$uid = $_GET['uid'];
+	}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,7 +28,7 @@
 
 					<!-- Alert Box -->
           <?php 
-          //Error Handling
+					//Error Handling
           if(isset($_GET['error'])) {
             if($_GET['error'] == "recaptcha") {
               echo '<div class="alert alert-warning"><strong>Warning! </strong>Please solve the Captcha!</div>';
@@ -47,7 +55,7 @@
 		
 						<div class="form-group">
 							<label for="username"></label>
-							<input type="text" class="form-control" name="username" id="username" aria-describedby="helpId" placeholder="">
+							<input type="text" class="form-control" name="username" id="username" aria-describedby="helpId" placeholder="" value="<?php echo $uid ?>">
 							<small id="helpId" class="form-text text-muted">Username</small>
 						</div>
 
