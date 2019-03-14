@@ -11,12 +11,13 @@
 		$username 	= $_POST['username'];
 		$password 	= $_POST['pwd'];
 		
+		//Variables for Google ReCaptcha
 		$secretKey	= "6LfoIZYUAAAAANnkiYlM5Lc_yU7NLdUTd9rZFyD9";
 		$responseKey= $_POST['g-recaptcha-response'];
 		$userIP		= $_SERVER['REMOTE_ADDR'];
 		$googleUrl	= "https://www.google.com/recaptcha/api/siteverify";
 
-		// Google ReCaptcha V2
+		// Google ReCaptcha V2, get response from google server
 		$response = file_get_contents($googleUrl.'?secret='.$secretKey.'&response='.$responseKey.'&remoteip='.$userIP);
 		$response = json_decode($response);
 

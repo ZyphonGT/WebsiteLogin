@@ -54,6 +54,7 @@
 							<small id="helpId" class="form-text text-muted">Password</small>
 						</div>
 
+						<!-- Google ReCaptcha -->
 						<div class="g-recaptcha" data-sitekey="6LfoIZYUAAAAAC2_5OE2KD45MdjAjD48Z4OrkI-k"></div>
 
 						<button type="submit" class="btn btn-primary" id="submit" name="login-submit">Log in</button>
