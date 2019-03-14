@@ -22,18 +22,18 @@
           //Error Handling
           if(isset($_GET['error'])) {
             if($_GET['error'] == "recaptcha") {
-              echo '<div class="alert alert-danger">Please solve the Captcha!</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Please solve the Captcha!</div>';
             } elseif($_GET['error'] == "emptyfields") {
-              echo '<div class="alert alert-danger">Please complete the form!</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Please complete the form!</div>';
             } else if($_GET['error'] == "invalidemailusername") {
-              echo '<div class="alert alert-danger">Please enter a valid email!</div>';
-              echo '<div class="alert alert-danger">Please enter a valid username! (AlphaNumeric)</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid email!</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid username! (AlphaNumeric)</div>';
             } else if($_GET['error'] == "invalidmail") {
-              echo '<div class="alert alert-danger">Please enter a valid email!</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid email!</div>';
             } else if($_GET['error'] == "invalidusername") {
-              echo '<div class="alert alert-danger">Please enter a valid username! (AlphaNumeric)</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid username! (AlphaNumeric)</div>';
             } else if($_GET['error'] == "passwordcheck") {
-              echo '<div class="alert alert-danger">Re-entered password doesn\'t match!</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Re-entered password doesn\'t match!</div>';
             } else if($_GET['error'] == "usernameTaken") {
               echo '<div class="alert alert-danger"><strong>Username taken!</strong> Please choose another username.</div>';
             } else {
@@ -41,13 +41,11 @@
             }
             //Registration Successful.
           } else if(isset($_GET['register'])) {
-            if($_GET['success'] == 'success') {
+            if($_GET['register'] == 'success') {
               echo '<div class="alert alert-success"><strong>Registration Successful!</strong> Click <a href="login.php" class="alert-link">here</a> to login now.</div>';
             }
           }
           ?>
-
-  
 
           <form method="POST" action="do_register.php">
 
@@ -76,8 +74,11 @@
 
             <div class="g-recaptcha" data-sitekey="6LfoIZYUAAAAAC2_5OE2KD45MdjAjD48Z4OrkI-k"></div>
 
-            <button type="submit" class="btn btn-primary" id="submit" name="register-submit">Submit</button>
-        
+            <button type="submit" class="btn btn-primary" id="submit" name="register-submit">Register</button>
+            
+            <div style="text-align:center;">
+            or <br> Click here to <a href="login.php">login</a>.
+            </div>
           </form>
         </div>
       </div>

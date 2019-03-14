@@ -18,6 +18,24 @@
 		
 				<div class="col"> 
 
+					<!-- Alert Box -->
+          <?php 
+          //Error Handling
+          if(isset($_GET['error'])) {
+            if($_GET['error'] == "recaptcha") {
+              echo '<div class="alert alert-warning"><strong>Warning! </strong>Please solve the Captcha!</div>';
+            } elseif($_GET['error'] == "emptyfields") {
+              echo '<div class="alert alert-warning"><strong>Warning! </strong>Please complete the form!</div>';
+            } else if($_GET['error'] == "uidNotFound") {
+              echo '<div class="alert alert-warning"><strong>Warning! </strong>Username not found. Click <a href="register.php" class="alert-link">here</a> to register.</div>';
+            } else if($_GET['error'] == "wrongpwd") {
+              echo '<div class="alert alert-warning"><strong>Warning! </strong>Wrong Password!</div>';
+            } else {
+              echo '<div class="alert alert-danger">Uncatched Error! Contact developers.</div>';
+            }
+          }
+          ?>
+
 					<div class="text-container">
 						<h1 class="title">Login</h1>
 						<h5 class="subtitle">Please input your account credential.</h5>
@@ -38,8 +56,11 @@
 
 						<div class="g-recaptcha" data-sitekey="6LfoIZYUAAAAAC2_5OE2KD45MdjAjD48Z4OrkI-k"></div>
 
-						<button type="submit" class="btn btn-primary" id="submit" name="login-submit">Submit</button>
-		
+						<button type="submit" class="btn btn-primary" id="submit" name="login-submit">Log in</button>
+						
+						<div style="text-align:center;">
+            	or <br> Click here to <a href="register.php">register</a>.
+            </div>
 					</form>
 
 				</div>
