@@ -30,6 +30,8 @@
               echo '<div class="alert alert-warning"><strong>Warning! </strong>Username not found. Click <a href="register.php" class="alert-link">here</a> to register.</div>';
             } else if($_GET['error'] == "wrongpwd") {
               echo '<div class="alert alert-warning"><strong>Warning! </strong>Wrong Password!</div>';
+            } else if($_GET['error'] == "inactivity") {
+              echo '<div class="alert alert-warning">Logged out due to inactivity.</div>';
             } else {
               echo '<div class="alert alert-danger">Uncatched Error! Contact developers.</div>';
             }
