@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
 
+<?php
+
+
+?>
+
 <head>
     <title>CompSec</title>
     <!-- Required meta tags -->
@@ -13,6 +18,13 @@
 </head>
 
 <body>
+
+<?php
+    header("Location: login.php");
+    exit();
+?>
+
+<!--  
     <div class="container my-4">
         <div class="row">
             <div class="col-12">
@@ -31,6 +43,9 @@
             </div>
         </div>
     </div>
+
+-->
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
