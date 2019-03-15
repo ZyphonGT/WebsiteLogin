@@ -38,7 +38,7 @@
 			exit();
 
 		//Invalid Email and Username
-		} else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+		} else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && (!preg_match("/^[a-zA-Z0-9]*$/", $username) || strlen($username) < 3)) {
 			header("Location: register.php?error=invalidemailusername&uid=".$username."&email=".$email);
 			exit();
 
@@ -48,11 +48,16 @@
 			exit();
 			
 		//Invalid Username
-		} else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)) {	
+		} else if(preg_match("/^[a-zA-Z0-9]*$/", $username) == false || strlen($username) < 3) {	
 			header("Location: register.php?error=invalidusername&uid=".$username."&email=".$email);
 			exit();
 
-		//Re-entered Password doesnt match
+		//Password too short
+		} else if(isPwdNotSafe($password)) {
+			header("Location: register.php?error=invalidpassword&uid=".$username."&email=".$email);
+			exit();
+
+		// Re-entered Password doesnt match
 		} else if($password !== $repassword) {
 			
 			header("Location: register.php?error=passwordcheck&uid=".$username."&email=".$email);
@@ -109,6 +114,14 @@
 		header("Location: register.php");
 		exit();
 	}
-
 	
+	function isPwdNotSafe($pwd) {
+		// preg_match('/\s/',$pwd) || 
+		if( strpos($pwd, " ") !== false || strlen($pwd) < 5 ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 ?>
