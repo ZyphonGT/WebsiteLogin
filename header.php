@@ -27,7 +27,7 @@
             } else {
                 $uid=$_SESSION['uid'];
                 $uid=strtoupper($uid);
-                echo    '<span id="or">Welcome back, '.$_SESSION['uid'].'!</span>';
+                echo    '<span id="or">Welcome back, '.$uid.'!</span>';
             }
         ?>
 
