@@ -9,7 +9,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-	<title>Title</title>
+	<title>Login</title>
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">

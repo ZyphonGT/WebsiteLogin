@@ -1,0 +1,93 @@
+header{
+    width: 100%;
+    background-color: #2E294E;
+    height: 80px;
+}
+
+header h1{
+    padding: 3px;
+    float: left;
+    margin-left: 2%;
+    margin-top: 10px;
+    color: whitesmoke;
+}
+
+header h1 a {
+    color: whitesmoke;
+}
+
+header h1:hover a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+header button {
+    padding: 3px;
+    float: right;
+    margin-right: 2%;
+    margin-top: 20px;
+    color: whitesmoke;
+}
+
+header ul{
+    width: auto;
+    float: left;
+    margin-top: 8px;
+}
+
+header li{
+    display: inline-block;
+    padding: 15px 30px;
+    height: 100%;
+}
+
+header li a{
+    text-align: center;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.2vw;
+    font-weight: 350;
+}
+
+nav span.Register{
+    padding: 3px;
+    float: right;
+    margin-right: 5px;
+    margin-top: 25px;
+    color: whitesmoke;
+}
+
+nav span.Register a{
+    text-align: center;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+nav span.Register a:hover{
+    color: #f0ad4e;
+    transition: 0.3s;
+}
+
+nav span#or{
+    padding: 3px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 25px;
+    color: whitesmoke;
+}
+
+header li:hover{
+    background-color: whitesmoke;
+    transition: 0.3s;
+}
+
+header li:hover a{
+    color: #2E294E;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+
+body {
+    background-color: aliceblue;
+}
