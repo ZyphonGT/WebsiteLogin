@@ -38,7 +38,7 @@
 			exit();
 
 		//Invalid Email and Username
-		} else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && (!preg_match("/^[a-zA-Z0-9]*$/", $username) || strlen($username) < 3)) {
+		} else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && (!preg_match("/^[a-zA-Z0-9]*$/", $username) || strlen($username) < 3 || strlen($username) > 10)) {
 			header("Location: register.php?error=invalidemailusername&uid=".$username."&email=".$email);
 			exit();
 
@@ -48,7 +48,7 @@
 			exit();
 			
 		//Invalid Username
-		} else if(preg_match("/^[a-zA-Z0-9]*$/", $username) == false || strlen($username) < 3) {	
+		} else if(preg_match("/^[a-zA-Z0-9]*$/", $username) == false || strlen($username) < 3 || strlen($username) > 10 ) {	
 			header("Location: register.php?error=invalidusername&uid=".$username."&email=".$email);
 			exit();
 

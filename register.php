@@ -40,11 +40,11 @@
               echo '<div class="alert alert-danger"><strong>Error! </strong>Please complete the form!</div>';
             } else if($_GET['error'] == "invalidemailusername") {
               echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid email!</div>';
-              echo '<div class="alert alert-danger"><strong>Error! </strong>Username must be at least 3 characters! (AlphaNumeric Only!)</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Username must be between 3-10 characters! (AlphaNumeric Only!)</div>';
             } else if($_GET['error'] == "invalidmail") {
               echo '<div class="alert alert-danger"><strong>Error! </strong>Please enter a valid email!</div>';
             } else if($_GET['error'] == "invalidusername") {
-              echo '<div class="alert alert-danger"><strong>Error! </strong>Username must be at least 3 characters! (AlphaNumeric Only!)</div>';
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Username must be between 3-10 characters! (AlphaNumeric Only!)</div>';
             } else if($_GET['error'] == "invalidpassword") {
               echo '<div class="alert alert-danger"><strong>Error! </strong>Password must be at least 5 characters and contains NO whitespaces</div>';
             } else if($_GET['error'] == "passwordcheck") {
