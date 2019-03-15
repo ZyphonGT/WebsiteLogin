@@ -15,8 +15,8 @@
     <h1 class="display-4" style="font-size: 40px;"><a href="menu.php">Website Login</a></h1>
     <nav>
         <ul>
-            <li class="lead"><a href="#">Link 1</a></li>
-            <li class="lead"><a href="#">Link 2</a></li>
+            <li class="lead"><a href="menu.php">Home</a></li>
+            <li class="lead"><a href="chat.php">Chat Room</a></li>
             <li class="lead"><a href="#">Link 3</a></li>
             <li class="lead"><a href="#">Link 4</a></li>
         </ul>
