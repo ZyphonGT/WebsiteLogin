@@ -59,7 +59,7 @@ if(isset($_GET['content'])) {
                         </div>
                         <div class="form-group">
                             <label for="InputPostContent"><strong>Post Content</strong></label>
-                            <textarea class="form-control" name="InputPostContent" id="InputPostContent" aria-describedby="PostContentHelp" rows="6" placeholder="Write your thoughts here..." value="<?php echo $contentField ?>"></textarea>
+                            <textarea class="form-control" name="InputPostContent" id="InputPostContent" aria-describedby="PostContentHelp" rows="6" placeholder="Write your thoughts here..."><?php echo $contentField ?></textarea>
                             <small id="PostContentHelp" class="form-text text-muted">Must be between 10-5000 characters</small>
                         </div>
 
