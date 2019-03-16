@@ -6,6 +6,21 @@
     padding: 20px 20px;
 }
 
-.post-box {
-    background-color: gray;
+.timestamp{
+    color:#0069D9;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.post-log{
+    padding: 10px 15px;
+}
+
+.rower{
+    margin-top: 20px;
+}
+
+.profile .card{
+ padding-left:10px !important;
+ padding-right:10px !important;
 }
