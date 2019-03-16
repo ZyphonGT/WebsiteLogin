@@ -91,12 +91,13 @@ if(isset($_GET['content'])) {
         <div class="row my-4">
             <div class="col">
                 <div class="card post-log">
-                    <h5 class="card-header timestamp">Timestamp</h5>
+                    <h5 class="card-header timestamp">2019-03-16 12:02:37</h5>
                     <div class="row rower">
                         <div class="col-2 profile">
                             <div class="card" style="width: 10rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">RickyGani</h5>
+                                    <img class="card-img-top" src="img/default_profile.jpg" alt="Card image cap">
                                     <p class="card-text"><strong>Join Date</strong>:<br>2019-10-10</p>
                                     <p class="card-text"><strong>Posts</strong>: <br>1</p>
                                 </div>
@@ -132,12 +133,15 @@ if(isset($_GET['content'])) {
 
                 //If there is post
                 if(mysqli_num_rows($result) > 0) {
+                    
+                    
                     while($row = mysqli_fetch_assoc($result)) {
                         array_push($datas, $row);
                     }
-
+                    
                     print_r($datas);
-
+                    
+                    /*
                     foreach($datas as $line) {
                         // print_r($uid." ");
                         foreach($line as $x)
@@ -147,6 +151,7 @@ if(isset($_GET['content'])) {
                         print_r("<br>");
                         // print_r($datas[0]["post_content"]);
                     }
+                    */
                 } 
                 else {
                     //post_table is empty

@@ -3,7 +3,7 @@
 }
 
 div.card-body {
-    padding: 0.25rem 1.25rem 1.25rem 1.25rem;
+    padding: 0.25rem 1.25rem 0.25rem 1.25rem;
 }
 .card {
     padding: 20px 20px;
@@ -17,7 +17,7 @@ div.card-body {
 }
 
 h5.card-title {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 p.card-text {
@@ -35,4 +35,9 @@ p.card-text {
 .profile .card{
  padding-left:10px !important;
  padding-right:10px !important;
+}
+
+.card-img-top{
+    border: 1px solid rgb(43, 43, 43);
+    margin-bottom: 2rem;
 }
