@@ -33,7 +33,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Website Login </title>
+    <title>WL Forum</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="style/header.css">
 </head>
 <header>
-    <h1 class="display-4" style="font-size: 40px;"><a href="menu.php">Website Login</a></h1>
+    <h1 class="display-4" style="font-size: 40px;"><a href="menu.php">WL Forum</a></h1>
     <nav>
         <ul>
             <li class="lead"><a href="menu.php">Home</a></li>
