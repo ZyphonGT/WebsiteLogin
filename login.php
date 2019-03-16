@@ -70,7 +70,7 @@
 						<button type="submit" class="btn btn-primary" id="submit" name="login-submit">Log in</button>
 						
 						<div style="text-align:center;">
-            	or <br> Click here to <a href="register.php">register</a>.
+							or <br> Click here to <a href="register.php">register</a> or <a href="index.php">continue as Guest</a>.
             </div>
 					</form>
 
