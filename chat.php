@@ -69,8 +69,37 @@ if(isset($_GET['content'])) {
             </div>
         </div>
 
-        <?php
+        <!-- Chat Log -->
+       
+        <div class="row my-4">
+            <div class="col">
+                <div class="card post-log">
+                    <h5 class="card-header timestamp">Timestamp</h5>
+                    <div class="row rower">
+                        <div class="col-2 profile">
+                            <div class="card" style="width: 10rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">RickyGani</h5>
+                                    <p class="card-text"><strong>Join Date</strong>:<br>2019-10-10</p>
+                                    <p class="card-text"><strong>Posts</strong>: <br>1</p>
+                                </div>
+                                
+                            </div>
+                        </div>
 
+                        <div class="card-body col-10 profile">
+                            <h2 class="card-title">sadasdaw</h2>
+                            <hr>
+                            <p class="card-text">Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda.</p>
+                        </div>
+                    </div>
+                    
+                        
+                </div>
+            </div>
+        </div>
+        
+        <?php
         //  Retrieve DB
 
             $sql  = "SELECT * FROM post_table";
@@ -90,7 +119,7 @@ if(isset($_GET['content'])) {
                         array_push($datas, $row);
                     }
 
-                    // print_r($datas);
+                    print_r($datas);
 
                     foreach($datas as $line) {
                         // print_r($uid." ");
@@ -110,39 +139,6 @@ if(isset($_GET['content'])) {
 
             }
         ?>
-        
-        <!-- Chat Log -->
-        <!--
-        <div class="row my-4">
-            <div class="col">
-                <div class="card post-log">
-                    
-                    <h5 class="card-header timestamp">Timestamp</h5>
-                    <div class="row rower">
-                        <div class="col-2 profile">
-                            <div class="card" style="width: 10rem;">
-                                <img class="card-img-top" src="" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Username</h5>
-                                    <p class="card-text">Join Date.</p>
-                                    <p class="card-text">Post #1.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="card-body col-10 profile">
-                            <h2 class="card-title">Post title</h2>
-                            <p class="card-text">This is a stupid content.</p>
-                            <a href="#" class="btn btn-primary">Go fk urself</a>
-                        </div>
-                    </div>
-                    
-                        
-                </div>
-            </div>
-        </div>
-        -->
 
     </div>
 </main>

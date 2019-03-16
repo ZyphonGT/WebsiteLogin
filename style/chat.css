@@ -2,14 +2,26 @@
     text-align: center;
 }
 
+div.card-body {
+    padding: 0.25rem 1.25rem 1.25rem 1.25rem;
+}
 .card {
     padding: 20px 20px;
 }
 
 .timestamp{
-    color:#0069D9;
+    background-color: #2E294E;
+    color:#fff;
     font-size: 14px;
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
+}
+
+h5.card-title {
+    margin-bottom: 4rem;
+}
+
+p.card-text {
+    margin-bottom: 0rem;
 }
 
 .post-log{
