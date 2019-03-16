@@ -1,5 +1,15 @@
 <?php
 require 'header.php';
+$titleField = "";
+$contentField = "";
+
+if(isset($_GET['title'])) {
+    $titleField = $_GET['title'];
+}
+
+if(isset($_GET['content'])) {
+    $contentField = $_GET['content'];
+}
 ?>
 
 <link rel="stylesheet" href="style/chat.css">
@@ -16,29 +26,93 @@ require 'header.php';
             </div>
         </div>
 
+        <!-- Alert Box -->
+        <?php 
+          //Error Handling
+          if(isset($_GET['error'])) {
+            if($_GET['error'] == "emptyfields") {
+              echo '<div class="alert alert-warning">That is not interesting enough to post...</div>';
+            } else if($_GET['error'] == "invalidTitle") {
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Title must be between 5-100 characters</div>';
+            } else if($_GET['error'] == "invalidContent") {
+              echo '<div class="alert alert-danger"><strong>Error! </strong>Post content must be between 10-5000 characters</div>';
+            } else {
+              echo '<div class="alert alert-danger">Uncatched Error! Contact developers.</div>';
+            }
+            //Post Successful.
+          } else if(isset($_GET['chat'])) {
+            if($_GET['chat'] == 'success') {
+              echo '<div class="alert alert-success"><strong>Success!</strong> Your post is now online!</div>';
+            }
+          }
+          ?>
+
         <!-- Chat Form -->
         <div class="row my-4">
             <div class="col">
                 <div class="card">
-                    <form method="" action="">
+                    <form method="POST" action="do_chat.php">
                         <div class="form-group">
                             <label for="InputPostTitle"><strong>Post Title</strong></label>
-                            <input type="text" class="form-control" id="InputPostTitle" aria-describedby="PostTitleHelp" placeholder="Enter post title">
+                            <input type="text" class="form-control" name="InputPostTitle" id="InputPostTitle" aria-describedby="PostTitleHelp" placeholder="Enter post title" value="<?php echo $titleField ?>">
                             <small id="PostTitleHelp" class="form-text text-muted">Must be between 5-100 characters</small>
                         </div>
                         <div class="form-group">
                             <label for="InputPostContent"><strong>Post Content</strong></label>
-                            <textarea class="form-control" id="InputPostContent" aria-describedby="PostContentHelp" rows="6" placeholder="Write your thoughts here..."></textarea>
+                            <textarea class="form-control" name="InputPostContent" id="InputPostContent" aria-describedby="PostContentHelp" rows="6" placeholder="Write your thoughts here..." value="<?php echo $contentField ?>"></textarea>
                             <small id="PostContentHelp" class="form-text text-muted">Must be between 10-5000 characters</small>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="chat-submit">Post</button>
                     </form>    
                 </div>
             </div>
         </div>
 
+        <?php
+
+        //  Retrieve DB
+
+            $sql  = "SELECT * FROM post_table";
+            $stmt = mysqli_stmt_init($link);
+            if(!mysqli_stmt_prepare($stmt, $sql)) {
+                header("Location: chat.php?error=sqlerror1");
+                exit();
+            } else {
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+
+                $datas = array();
+
+                //If there is post
+                if(mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                        array_push($datas, $row);
+                    }
+
+                    // print_r($datas);
+
+                    foreach($datas as $line) {
+                        // print_r($uid." ");
+                        foreach($line as $x)
+                        {
+                            print_r($x."<br>");
+                        }    
+                        print_r("<br>");
+                        // print_r($datas[0]["post_content"]);
+                    }
+                } 
+                else {
+                    //post_table is empty
+                    header("Location: chat.php?error=noPostFound&title=".$postTitle."&content=".$postContent);
+                    exit();
+                }
+
+            }
+        ?>
+        
         <!-- Chat Log -->
+        <!--
         <div class="row my-4">
             <div class="col-12 post-box">
                 <div class="col-3 post-userinfo">
@@ -50,7 +124,7 @@ require 'header.php';
                 
             </div>
         </div>
-
+        -->
 
     </div>
 </main>
