@@ -114,14 +114,32 @@ if(isset($_GET['content'])) {
         <!-- Chat Log -->
         <!--
         <div class="row my-4">
-            <div class="col-12 post-box">
-                <div class="col-3 post-userinfo">
-                    asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd 
+            <div class="col">
+                <div class="card post-log">
+                    
+                    <h5 class="card-header timestamp">Timestamp</h5>
+                    <div class="row rower">
+                        <div class="col-2 profile">
+                            <div class="card" style="width: 10rem;">
+                                <img class="card-img-top" src="" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Username</h5>
+                                    <p class="card-text">Join Date.</p>
+                                    <p class="card-text">Post #1.</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="card-body col-10 profile">
+                            <h2 class="card-title">Post title</h2>
+                            <p class="card-text">This is a stupid content.</p>
+                            <a href="#" class="btn btn-primary">Go fk urself</a>
+                        </div>
+                    </div>
+                    
+                        
                 </div>
-                <div class="col-8 post-content">
-                    asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd asdsadasd 
-                </div>
-                
             </div>
         </div>
         -->
