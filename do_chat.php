@@ -56,7 +56,20 @@
                  * INSERT into Database *
                  ************************/
                 mysqli_stmt_bind_param($stmt, "sss", $username, $postTitle, $postContent);
-                mysqli_stmt_execute($stmt);
+				mysqli_stmt_execute($stmt);
+				
+				//Updating User's num_of_posts
+				$sql ="UPDATE user SET num_of_posts = num_of_posts+1 WHERE username=?";
+				$stmt= mysqli_stmt_init($link);
+				if(!mysqli_stmt_prepare($stmt, $sql)) {
+					header("Location: chat.php?error=sqlerrorUpdatingNumPost");
+                exit();
+				} else {
+					mysqli_stmt_bind_param($stmt, "s", $username);
+					mysqli_stmt_execute($stmt);
+				}
+				
+				
                 header("Location: chat.php?chat=success");
                 exit();
             }

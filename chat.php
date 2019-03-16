@@ -116,7 +116,9 @@ if(isset($_GET['content'])) {
          -->
         
         <?php
-        //  Retrieve DB
+        /***************************
+        * GENERATING POSTS FROM DB *
+        ***************************/
 
             $sql  = "SELECT * FROM post_table";
             $stmt = mysqli_stmt_init($link);
@@ -136,13 +138,36 @@ if(isset($_GET['content'])) {
                     while($row = mysqli_fetch_assoc($result)) {
                         array_push($datas, $row);
                     }
+
                     // print_r($datas);
-                    // print_r(count($datas));
 
                     //uid, post_title, post_content, datetime
                     // BEGIN GENERATING CARDS
                     for($i = count($datas)-1; $i>=0; $i--) {
-                        // print_r($datas[$i]["uid"]);
+                        // $date = explode(' ',trim($datas[$i]["date_joined"]));
+
+                        //Taking User's date joined and numOfPosts
+                        $uid = $datas[$i]["uid"];
+                        $date = "";
+                        $posts =0;
+
+                        $sql  = "SELECT date_joined, num_of_posts FROM user WHERE username=?";
+                        $stmt = mysqli_stmt_init($link);
+                        if(!mysqli_stmt_prepare($stmt, $sql)) {
+                            header("Location: chat.php?error=sqlerror123");
+                            exit();
+                        } else {
+                            mysqli_stmt_bind_param($stmt,"s",$uid);
+                            mysqli_stmt_execute($stmt);
+                            $result = mysqli_stmt_get_result($stmt);
+                            
+                            if($row = mysqli_fetch_assoc($result)) {
+                                $date = $row["date_joined"];
+                                $posts = $row["num_of_posts"];
+                                $arr = explode(' ', trim($date));
+
+                            }
+
                         echo '  <div class="row my-4">
                                     <div class="col">
                                         <div class="card post-log">
@@ -153,10 +178,9 @@ if(isset($_GET['content'])) {
                                                         <div class="card-body">
                                                             <h5 class="card-title">'.$datas[$i]["uid"].'</h5>
                                                             <img class="card-img-top" src="img/default_profile.jpg" alt="Card image cap">
-                                                            <p class="card-text"><strong>Join Date</strong>:<br>2019-10-10</p>
-                                                            <p class="card-text"><strong>Posts</strong>: <br>1</p>
+                                                            <p class="card-text"><strong>Join Date</strong>:<br>'.$arr[0].'</p>
+                                                            <p class="card-text"><strong>Posts</strong>: <br>'.$posts.'</p>
                                                         </div>
-                                                        
                                                     </div>
                                                 </div>
                                                 <div class="card-body col-10 profile">
@@ -168,8 +192,9 @@ if(isset($_GET['content'])) {
                                         </div>
                                     </div>
                                 </div>';
+                    
+                        }
                     }
-
                     /*
                     foreach($datas as $line) {
                         // print_r($uid." ");
@@ -181,8 +206,7 @@ if(isset($_GET['content'])) {
                         // print_r($datas[0]["post_content"]);
                     }
                     */
-                } 
-                else {
+                } else {
                     //post_table is empty
                     header("Location: chat.php?error=noPostFound&title=".$postTitle."&content=".$postContent);
                     exit();
