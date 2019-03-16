@@ -49,8 +49,11 @@
         <ul>
             <li class="lead"><a href="menu.php">Home</a></li>
             <li class="lead"><a href="chat.php">Chat Room</a></li>
-            <li class="lead"><a href="#">Link 3</a></li>
-            <li class="lead"><a href="#">Link 4</a></li>
+            <?php
+                if(isset($_SESSION['uid'])){
+                    echo '<li class="lead"><a href="do_logout.php">Log Out</a></li>';
+                }
+            ?>
         </ul>
 
         <?php
