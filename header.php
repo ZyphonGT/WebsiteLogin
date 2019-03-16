@@ -1,3 +1,35 @@
+<?php
+        session_start();
+
+        $link = mysqli_connect("localhost","root","","brinets");
+            if(!$link) {
+                die("Connection Failed: ".mysqli_connect_error());
+            }
+        /******************
+         * Take Username  *
+         ******************/
+        
+        if(!isset($_SESSION['uid'])){
+            $username = "Please relogin";
+        } else{
+            $username = $_SESSION['uid'];
+        }
+        
+        /******************
+         * Session Expiry *
+         ******************/
+        
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+            // last request was more than 5 minutes ago
+            session_unset();     // unset $_SESSION variable for the run-time 
+            session_destroy();   // destroy session data in storage
+            header("Location: login.php?error=inactivity");
+            exit();
+        }
+        $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -42,6 +74,7 @@
         <span id="or">Welcome back, USERNAME!</span>
         -->
 
+        
      </nav>
 </header>
 <body>
