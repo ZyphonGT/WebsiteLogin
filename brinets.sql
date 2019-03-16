@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2019 at 08:15 PM
+-- Generation Time: Mar 16, 2019 at 06:22 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -33,8 +33,15 @@ CREATE TABLE `post_table` (
   `uid` varchar(10) NOT NULL,
   `post_title` varchar(50) NOT NULL,
   `post_content` text NOT NULL,
-  `timestamp` datetime NOT NULL
+  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `post_table`
+--
+
+INSERT INTO `post_table` (`id`, `uid`, `post_title`, `post_content`, `datetime`) VALUES
+(1, 'aaa', 'The First Post Ever', 'Sda sd asd a sd as d sa d as da sad', '2019-03-16 12:02:37');
 
 -- --------------------------------------------------------
 
@@ -93,7 +100,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `post_table`
 --
 ALTER TABLE `post_table`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
