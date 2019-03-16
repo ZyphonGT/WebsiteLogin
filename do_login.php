@@ -24,14 +24,13 @@
 		/******************
 		 * Error Handling *
 		 ******************/
-		/*
+		
 		//Recaptcha failed
 		if($response->success != 1) {
 			header("Location: login.php?error=recaptcha&uid=".$username);
 			exit();
 		//Empty Fields
 		}else 
-		*/
 		if(empty($username) || empty($password)) {
 			header("Location: login.php?error=emptyfields&uid=".$username);
 			exit();
