@@ -87,7 +87,7 @@ if(isset($_GET['content'])) {
         </div>
 
         <!-- Chat Log -->
-       
+       <!-- 
         <div class="row my-4">
             <div class="col">
                 <div class="card post-log">
@@ -104,18 +104,16 @@ if(isset($_GET['content'])) {
                                 
                             </div>
                         </div>
-
                         <div class="card-body col-10 profile">
                             <h2 class="card-title">sadasdaw</h2>
                             <hr>
                             <p class="card-text">Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda Sdasd lwop lllsadwmfaw sadlld awkdalwdlaw sdaklsda.</p>
                         </div>
                     </div>
-                    
-                        
                 </div>
             </div>
         </div>
+         -->
         
         <?php
         //  Retrieve DB
@@ -138,9 +136,40 @@ if(isset($_GET['content'])) {
                     while($row = mysqli_fetch_assoc($result)) {
                         array_push($datas, $row);
                     }
-                    
-                    print_r($datas);
-                    
+                    // print_r($datas);
+                    // print_r(count($datas));
+
+                    //uid, post_title, post_content, datetime
+                    // BEGIN GENERATING CARDS
+                    for($i = count($datas)-1; $i>=0; $i--) {
+                        // print_r($datas[$i]["uid"]);
+                        echo '  <div class="row my-4">
+                                    <div class="col">
+                                        <div class="card post-log">
+                                            <h5 class="card-header timestamp">'.$datas[$i]["datetime"].'</h5>
+                                            <div class="row rower">
+                                                <div class="col-2 profile">
+                                                    <div class="card" style="width: 10rem;">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">'.$datas[$i]["uid"].'</h5>
+                                                            <img class="card-img-top" src="img/default_profile.jpg" alt="Card image cap">
+                                                            <p class="card-text"><strong>Join Date</strong>:<br>2019-10-10</p>
+                                                            <p class="card-text"><strong>Posts</strong>: <br>1</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="card-body col-10 profile">
+                                                    <h2 class="card-title">'.$datas[$i]["post_title"].'</h2>
+                                                    <hr>
+                                                    <p class="card-text">'.$datas[$i]["post_content"].'</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>';
+                    }
+
                     /*
                     foreach($datas as $line) {
                         // print_r($uid." ");
