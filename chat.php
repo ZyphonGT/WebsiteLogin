@@ -63,7 +63,24 @@ if(isset($_GET['content'])) {
                             <small id="PostContentHelp" class="form-text text-muted">Must be between 10-5000 characters</small>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" name="chat-submit">Post</button>
+                        <?php
+                            //Not Logged In
+                            if(!isset($_SESSION['uid'])) {
+                                echo    '<button type="" class="btn btn-primary" aria-describedby="true" disabled >Post</button>
+                                <small style="display:inline; color:#ff0033;" id="SubmitContentHelp" class="form-text"> You must be signed in to post!</small>';
+                            //Logged In
+                            } else {
+                                echo    '<button type="submit" class="btn btn-primary" name="chat-submit" aria-describedby="SubmitContentHelp">Post</button>
+                                <small style="display:inline;" id="SubmitContentHelp" class="form-text text-muted"> You will be posting as '.strtoupper($username).'</small>';
+                            }
+                        ?>
+                        <!--
+                        <button type="submit" class="btn btn-primary" name="chat-submit" aria-describedby="SubmitContentHelp">Post</button>
+                        <small style="display:inline;" id="SubmitContentHelp" class="form-text text-muted"> You will be posting as <?php echo strtoupper($username)?></small>
+
+                        <button type="" class="btn btn-primary" aria-describedby="true" disabled >Post</button>
+                        <small style="display:inline; color:#ff0033;" id="SubmitContentHelp" class="form-text"> You must be signed in to post!</small>
+                        -->
                     </form>    
                 </div>
             </div>
