@@ -2,6 +2,8 @@
 require 'header.php';
 ?>
 
+<link rel="stylesheet" href="style/menu.css">
+
 <main>
     <div class="container my-4">
         <div class="row">

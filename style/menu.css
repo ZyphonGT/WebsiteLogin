@@ -1,0 +1,8 @@
+.top-image{
+    background-image: "img/homepage.jpg";
+    height: 50%;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
