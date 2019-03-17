@@ -66,12 +66,12 @@ if(isset($_GET['content'])) {
                         <?php
                             //Not Logged In
                             if(!isset($_SESSION['uid'])) {
-                                echo    '<button type="" class="btn btn-primary" aria-describedby="true" disabled >Post</button>
-                                <small style="display:inline; color:#ff0033;" id="SubmitContentHelp" class="form-text"> You must be signed in to post!</small>';
+                                echo    '<button type="" class="btn btn-warning" aria-describedby="true" disabled >Post</button>
+                                <small style="display:inline; color:#ff0033; margin-left:10px;" id="SubmitContentHelp" class="form-text">You must be signed in to post!</small>';
                             //Logged In
                             } else {
-                                echo    '<button type="submit" class="btn btn-primary" name="chat-submit" aria-describedby="SubmitContentHelp">Post</button>
-                                <small style="display:inline;" id="SubmitContentHelp" class="form-text text-muted"> You will be posting as '.strtoupper($username).'</small>';
+                                echo    '<button type="submit" class="btn btn-warning" name="chat-submit" aria-describedby="SubmitContentHelp">Post</button>
+                                <small style="display:inline; margin-left:10px;" id="SubmitContentHelp" class="form-text text-muted">You will be posting as '.strtoupper($username).'</small>';
                             }
                         ?>
                         <!--
