@@ -27,6 +27,47 @@
             exit();
         }
         $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+        /******************
+         *   Functions    *
+         ******************/
+        // used in menu.php
+        function countUsers() {
+            $link = mysqli_connect("localhost","root","","brinets");
+            if(!$link) {
+                die("Connection Failed: ".mysqli_connect_error());
+            }
+
+            $sql  = "SELECT * FROM user";
+            $stmt = mysqli_stmt_init($link);
+            if(!mysqli_stmt_prepare($stmt, $sql)) {
+                return -1;
+            } else {
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+
+                return mysqli_num_rows($result);
+            }
+        }
+
+        // used in menu.php
+        function countPosts() {
+            $link = mysqli_connect("localhost","root","","brinets");
+            if(!$link) {
+                die("Connection Failed: ".mysqli_connect_error());
+            }
+
+            $sql  = "SELECT * FROM post_table";
+            $stmt = mysqli_stmt_init($link);
+            if(!mysqli_stmt_prepare($stmt, $sql)) {
+                return -1;
+            } else {
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+
+                return mysqli_num_rows($result);
+            }
+        }
 ?>
 
 
@@ -62,7 +103,7 @@
             } else {
                 $uid=$_SESSION['uid'];
                 $uid=strtoupper($uid);
-                echo    '<span id="or">Welcome back, '.$uid.'!</span>';
+                echo    '<span id="or">Signed in as '.$uid.'</span>';
             }
         ?>
 
