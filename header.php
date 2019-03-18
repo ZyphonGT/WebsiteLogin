@@ -16,9 +16,9 @@
         }
         
         /******************
-         * Session Expiry *
+         * Session Expiry * PHP Version
          ******************/
-        
+        /*
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
             // last request was more than 5 minutes ago
             session_unset();     // unset $_SESSION variable for the run-time 
@@ -27,6 +27,7 @@
             exit();
         }
         $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+        */
 
         /******************
          *   Functions    *
@@ -85,6 +86,34 @@
     <link rel="stylesheet" href="style/header.css">
 </head>
 <header>
+
+    <!-- Session Expiry JS Version -->
+    <script type="text/javascript">
+        (function() {
+
+            const idleDurationSecs = 60;    // X number of seconds
+            const redirectUrl = 'do_logout.php';  // Redirect idle users to this URL
+            let idleTimeout; // variable to hold the timeout, do not modify
+
+            const resetIdleTimeout = function() {
+
+                // Clears the existing timeout
+                if(idleTimeout) clearTimeout(idleTimeout);
+
+                idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
+            };
+
+            // Init on page load
+            resetIdleTimeout();
+
+            // Reset the idle timeout on any of the events listed below
+            ['click', 'touchstart', 'mousemove'].forEach(evt =>
+                document.addEventListener(evt, resetIdleTimeout, false)
+            );
+
+        })();
+    </script>
+
     <h1 class="display-4" style="font-size: 40px;"><a href="menu.php">WL Forum</a></h1>
     <nav>
         <ul>
