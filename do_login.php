@@ -47,8 +47,12 @@
 				
 				//If username is found
 				if($row = mysqli_fetch_assoc($result)) {
-					//Check password
+					//Check password using BCRYPT
 					$pwdCheck = password_verify($password, $row['password']);
+
+					//Check password using SHA512
+					// $pwdCheck = password_verify(hash('sha512', $password), $row['password']);
+
 					if($pwdCheck == true) {
 						$_SESSION['id'] 	= $row['id'];
 						$_SESSION['uid'] 	= $row['username'];

@@ -90,6 +90,10 @@
 						// Hash password with BCRYPT
 						$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
+						// Hash password with SHA512
+						// $hashedPwd = hash("sha512", $password);
+						
+
 						/************************
 						 * INSERT into Database *
 						 ************************/
