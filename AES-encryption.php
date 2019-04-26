@@ -1,7 +1,6 @@
 <?php
 
-// dI5Y4U390K1y7Eigq6hFGA==
-
+/*
 $inputText = "dI5Y4U390K1y7Eigq6hFGA==";
 $inputKey = "global";
 $blockSize = 128;
@@ -13,7 +12,49 @@ $dec=$aes->decrypt();
 
 // echo "After encryption: ".$enc."<br/>";
 echo "After decryption: ".$dec."<br/>";
+*/
 
+if(isset($_POST['AES-encrypt'])) {
+    $key        = $_POST['keyValue'];
+    $plainText  = $_POST['plainText'];
+
+    /******************
+	* Error Handling *
+    ******************/
+
+    //Empty Fields
+    if(empty($key) || empty($plainText)) {
+        header("Location: aes.php?error=emptyfields&key=".$key."&eText=".$plainText);
+        exit();
+    } else {
+        $aes = new AEScoder($plainText, $key, 128);
+        $enc = $aes->encrypt();
+
+        header("Location: aes.php?success=encrypt&key=".$key."&eText=".$plainText."&eRes=".urlencode($enc));
+    }
+
+
+} else if(isset($_POST['AES-decrypt'])) {
+    $key        = $_POST['keyValue'];
+    $cipherText  = $_POST['cipherText'];
+
+    /******************
+	* Error Handling *
+    ******************/
+
+    //Empty Fields
+    if(empty($key) || empty($cipherText)) {
+        header("Location: aes.php?error=emptyfields&key=".$key."&dText=".$cipherText);
+        exit();
+    } else {
+        $aes = new AEScoder($cipherText, $key, 128);
+        $dec = $aes->decrypt();
+
+        header("Location: aes.php?success=decrypt&key=".$key."&dText=".$cipherText."&dRes=".$dec);
+    }
+
+
+}
 
 /**
  * Aes encryption

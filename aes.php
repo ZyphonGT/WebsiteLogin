@@ -1,104 +1,110 @@
 <?php
-        include 'header2.php';
-        ?>
-        <link rel="stylesheet" href="style/rsa.css">
+    include 'header.php';
+/* TODO
+ * [V] Encryption Code
+ * [V] Decryption Code
+ * [V] Encryption Error-Handling
+ * [V] Decryption Error-Handling
+ */
+    $key = "";
+    $eInput   = "";
+    $eRes     = "";
 
-        <main>
+    $dInput   = "";
+    $dRes     = "";
 
-            <!-- Step 2 -->
-            <div class="menu-bg">
-                <div class="menu-caption">
-                    <div class="shadow">
-                        <h1 class="display-4">
+    if(isset($_GET['key'])) {
+        $key = $_GET['key'];
+    }
+    if(isset($_GET['eText'])) $eInput = $_GET['eText'];
+    if(isset($_GET['eRes'])) {
+        $eRes = $_GET['eRes'];
+        $dInput = $eRes;
+    }  
+    
+    if(isset($_GET['dText'])) $dInput = $_GET['dText'];
+    if(isset($_GET['dRes'])) {
+        $dRes = $_GET['dRes'];
+        $eInput = $dRes;
+    }
+?>
+<link rel="stylesheet" href="style/rsa.css">
 
-                            <!-- middle text -->Step #1: Encrypt A Message!
-                        </h1>
-                        <h6 class="display-4 caption-end">
-                            
-                        </h6>
-                    </div>
+<main>
 
-                    <form method="POST" action="" class="text-center">
-                        <span class="variable-span">Key : <input type="text" class="small-form" name="keyvalue" id="keyvalue" aria-describedby="helpId" placeholder=""></span><br>
-                        <span class="variable-span"><input type="text" class="small-form" style="width:30%;text-align:center;margin-top: 10px;" name="encryptMsg" id="encryptMsg" aria-describedby="helpId" placeholder="Text here"></span>
-                        <button class="btn btn-outline-warning menu-button"><h4 class="display-4 btn-menu-text">
-                        Encrypt Now!
-                        </h4></button>
-                    </form>
-                    <div class="text-center">
-                        <h6 class="display-4 caption-end" style="opacity:0.5;">Encrypted Message: </h6> 
-                    </div>
-                    <div class="text-center">
-                        <h6 class="display-10 caption-end">haha r**** sux </h6> 
-                    </div>
+    <!-- Encryption -->
+    <div class="menu-bg">
+        <div class="menu-caption">
+            <div class="shadow">
+                <h1 class="display-4">
+
+                    <!-- middle text -->Encrypt A Message!
+                </h1>
+                <h6 class="display-4 caption-end">
                     
-
-                    </a>
-                </div>
-                
-                
-                
+                </h6>
             </div>
 
-            <!-- Step 3 -->
-            <div class="menu-bg">
-                <div class="menu-caption">
-                    <div class="shadow">
-                        <h1 class="display-4">
-
-                            <!-- middle text -->Step #2: Decrypt A Message!
-                        </h1>
-                        <h6 class="display-4 caption-end">
-                            
-                        </h6>
-                    </div>
-
-                    <form method="POST" action="" class="text-center">
-                    <span class="variable-span">Key : <input type="text" class="small-form" name="keyvalue" id="keyvalue" aria-describedby="helpId" placeholder=""></span><br>
-                        <span class="variable-span"><input type="text" class="small-form" style="width:30%;text-align:center;margin-top: 10px;" name="encryptMsg" id="encryptMsg" aria-describedby="helpId" placeholder="*whisper mumble mumble*!"></span>
-                        <button class="btn btn-outline-warning menu-button"><h4 class="display-4 btn-menu-text">
-                        Decrypt Now!
-                        </h4></button>
-                    </form>
-                    <div class="text-center">
-                        <h6 class="display-4 caption-end" style="opacity:0.5;">Decrypted Message: </h6> 
-                    </div>
-                    <div class="text-center">
-                        <h6 class="display-10 caption-end">haha ricky sux </h6> 
-                    </div>
-                    
-
-                    </a>
-                </div>
-                
-                
-                
+            <form method="POST" action="AES-encryption.php" class="text-center">
+                <span class="variable-span">Key : <input type="text" class="small-form" name="keyValue" id="keyValue" aria-describedby="helpId" value="<?php echo $key ?>"></span><br>
+                <span class="variable-span"><input type="text" class="small-form" name="plainText" id="plainText" style="width:30%;text-align:center;margin-top: 10px;" aria-describedby="helpId" placeholder="Enter PlainText" value="<?php echo $eInput ?>"></span>
+                <button class="btn btn-outline-warning menu-button" name="AES-encrypt"><h4 class="display-4 btn-menu-text">
+                Encrypt Now!
+                </h4></button>
+            </form>
+            <div class="text-center">
+                <h6 class="display-4 caption-end" style="opacity:0.5;">Encrypted Message: </h6> 
+            </div>
+            <div class="text-center">
+                <h6 class="display-10 caption-end"><?php echo $eRes ?></h6> 
             </div>
             
 
-        </main>
+            </a>
+        </div>
+        
+        
+        
+    </div>
 
-        <!-- 
-            <div class="container my-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <h4 class="card-header">Welcome <?php echo $username; ?>!</h4>
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="menu.php">Link #1</a></h4>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="menu.php">Link #2</a></h4>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="do_logout.php">Logout</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Decryption -->
+    <div class="menu-bg">
+        <div class="menu-caption">
+            <div class="shadow">
+                <h1 class="display-4">
+
+                    <!-- middle text -->Decrypt A Message!
+                </h1>
+                <h6 class="display-4 caption-end">
+                    
+                </h6>
             </div>
-        -->
 
-        <?php
-            require 'footer.php';
-        ?>
+            <form method="POST" action="AES-encryption.php" class="text-center">
+            <span class="variable-span">Key : <input type="text" class="small-form" name="keyValue" id="keyValue" aria-describedby="helpId" placeholder="" value="<?php echo $key ?>"></span><br>
+                <span class="variable-span"><input type="text" class="small-form" name="cipherText" id="cipherText" style="width:30%;text-align:center;margin-top: 10px;" id="encryptMsg" aria-describedby="helpId" placeholder="Enter The CipherText" value="<?php echo $dInput ?>"></span>
+                <button class="btn btn-outline-warning menu-button" name="AES-decrypt"><h4 class="display-4 btn-menu-text">
+                Decrypt Now!
+                </h4></button>
+            </form>
+            <div class="text-center">
+                <h6 class="display-4 caption-end" style="opacity:0.5;">Decrypted Message: </h6> 
+            </div>
+            <div class="text-center">
+                <h6 class="display-10 caption-end"><?php echo $dRes ?></h6> 
+            </div>
+            
+
+            </a>
+        </div>
+        
+        
+        
+    </div>
+    
+
+</main>
+
+<?php
+    require 'footer.php';
+?>
