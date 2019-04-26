@@ -1,5 +1,5 @@
     <?php
-        include 'header2.php';
+        include 'header.php';
         ?>
         <link rel="stylesheet" href="style/rsa.css">
 
@@ -16,6 +16,11 @@
                         </h6>
                     </div>
 
+                    <div class="text-center">
+                        Enter two prime numbers below (P, Q), then press Start Now: <br>
+                        (2, 3, 5, 7, 11, 13, 17, 19, 23, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 173, 179, 181, 191, 193, 197, 199)
+                    </div>
+                    
                     <div method="POST" action="" class="text-center group-form">
                         <span class="variable-span" style="left:0px; !important">P : <input type="text" class="small-form" name="pvalue" id="p" aria-describedby="helpId" placeholder="P Value"></span>
                         <span class="variable-span">Q : <input type="text" class="small-form" name="qvalue" id="q" aria-describedby="helpId" placeholder="Q Value"></span>
