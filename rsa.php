@@ -32,7 +32,7 @@
                         <span class="variable-span">N : <input type="text" style="margin-top:10px;" class="variable-value" id="n" disabled></span><br>
                         <span class="variable-span">L : <input type="text" style="margin-top:10px;" class="variable-value" id="l" disabled></span><br>
                         <span class="variable-span">E : <input type="text" style="margin-top:10px;" class="variable-value" id="e" onchange="encryptorChanged()"></span><span id="enKeyListSpan"></span><br>
-                        <span class="variable-span">E : <input type="text" style="margin-top:10px;" class="variable-value" id="d" onchange="decryptorChanged()"></span><span id="deKeyListSpan"><br>
+                        <span class="variable-span">D : <input type="text" style="margin-top:10px;" class="variable-value" id="d" onchange="decryptorChanged()"></span><span id="deKeyListSpan"><br>
                     </div>
 
                     <div class="text-center">
