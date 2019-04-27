@@ -36,11 +36,11 @@
                     </div>
 
                     <div class="text-center">
-                    <span class="variable-span">Private Key(E,N): <span class="small-form key-value" name="publicKey" id="private-key" aria-describedby="helpId" placeholder=""></span>
+                    <span class="variable-span">Public Key(E,N): <span class="small-form key-value" name="publicKey" id="private-key" aria-describedby="helpId" placeholder=""></span>
                     </div>
 
                     <div class="text-center">
-                    <span class="variable-span">Public Key(D,N): <span class="small-form key-value" name="privateKey" id="public-key" aria-describedby="helpId" placeholder=""></span>
+                    <span class="variable-span">Private Key(D,N): <span class="small-form key-value" name="privateKey" id="public-key" aria-describedby="helpId" placeholder=""></span>
                     </div>
 
                     </a>
