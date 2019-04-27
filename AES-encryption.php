@@ -140,7 +140,8 @@ class AEScoder {
      * @throws Exception
      */
     public function encrypt() {
-        if ($this->validateParams()) { 
+        if ($this->validateParams()) {                                                           
+                                                                                                    // What and Why IV? https://stackoverflow.com/a/39412887/6497363
             return trim(openssl_encrypt($this->data, $this->method, $this->key, $this->options,$this->getIV()));
         } else {
             throw new Exception('Invlid params!');

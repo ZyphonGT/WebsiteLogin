@@ -18,7 +18,7 @@
 
                     <div class="text-center">
                         Enter two prime numbers below (P, Q), then press Start Now: <br>
-                        (2, 3, 5, 7, 11, 13, 17, 19, 23, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 173, 179, 181, 191, 193, 197, 199)
+                        (11, 13, 17, 19, 23, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 173, 179, 181, 191, 193, 197, 199)
                     </div>
                     
                     <div method="POST" action="" class="text-center group-form">
